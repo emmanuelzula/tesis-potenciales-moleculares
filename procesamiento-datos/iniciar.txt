@@ -1,0 +1,14 @@
+docker start torchmd-net
+
+docker exec -it torchmd-net /bin/bash
+
+cd /workspace/entrenamientos/10pt-300-800K-tri/procesamiento
+
+mamba activate torchmd-net
+
+nohup python procesamiento.py > output.out &
+
+cd /workspace/entrenamientos/10pt-300-800K-tri/procesamiento/datos-procesados/train
+
+cp 10pt-300-800K-tri.h5 /workspace/entrenamientos/10pt-300-800K-tri/input
+
